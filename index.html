@@ -1,0 +1,514 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Демо: скрыто от поисковиков. После продажи удалить эту строку. -->
+<meta name="robots" content="noindex, nofollow">
+<title>Семейная Баня №7 — русская баня на дровах во Владивостоке</title>
+<meta name="description" content="Семейная Баня №7: отдельный бревенчатый дом с русской баней на дровах, веранда с мангалом, детская комната. До 25 гостей, круглосуточно. Владивосток, ул. Нефтеветка, 7.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Ruslan+Display&family=Lora:ital,wght@0,500;0,700;1,500&family=PT+Sans:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  /* Демо для показа владельцу. Фото и тексты из карточки «Семейной Бани №7» в 2ГИС.
+     Стиль снят с их дома: красный сруб, белые резные наличники, белая решётка веранды, тёмные ступени. */
+  :root {
+    --red: #9f2a22;
+    --red-2: #7f1f19;
+    --wood: #3a2218;
+    --cream: #fbf6ee;
+    --paper: #f3eadc;
+    --text: #2b1c15;
+    --dim: #6f5a4d;
+    --line: rgba(58,34,24,.16);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--cream); color: var(--text); font: 17px/1.6 "PT Sans", system-ui, sans-serif; }
+  a { color: inherit; text-decoration: none; }
+  img { display: block; max-width: 100%; }
+  .wrap { max-width: 1160px; margin: 0 auto; padding: 0 16px; }
+
+  .h { font-family: "Lora", Georgia, serif; font-weight: 700; line-height: 1.12; font-size: clamp(32px, 4.4vw, 52px); }
+  .h em { font-style: italic; font-weight: 500; color: var(--red); }
+  .lead { color: var(--dim); max-width: 34em; font-size: 18px; }
+  .lead + .lead { margin-top: 1em; }
+
+  /* Резная кромка, как белые наличники на их срубе */
+  .carve { height: 18px; background:
+    radial-gradient(circle at 12px 0, transparent 8px, var(--c, #fff) 8.5px) 0 0 / 24px 18px repeat-x; }
+  .carve.down { transform: scaleY(-1); }
+
+  /* Решётка, как ограждение их веранды */
+  .lattice {
+    background-color: var(--red);
+    background-image:
+      repeating-linear-gradient(45deg, rgba(255,255,255,.16) 0 3px, transparent 3px 34px),
+      repeating-linear-gradient(-45deg, rgba(255,255,255,.16) 0 3px, transparent 3px 34px);
+  }
+
+  /* Логотип: «№7» в круге, как номер на доме */
+  .logo { display: inline-flex; align-items: center; gap: 12px; line-height: 1; }
+  .logo .num {
+    width: 46px; height: 46px; border-radius: 50%; flex: none;
+    display: grid; place-items: center; background: var(--red); color: #fff;
+    font: 20px/1 "Ruslan Display", serif; border: 2px solid #fff; box-shadow: 0 0 0 2px var(--red);
+  }
+  .logo b { display: block; font: 700 19px/1.1 "Lora", serif; }
+  .logo small { display: block; font-size: 13px; letter-spacing: .02em; opacity: .8; margin-top: 2px; }
+
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+    padding: 15px 28px; font: 700 16px/1.2 "PT Sans", sans-serif;
+    border: 2px solid var(--red); color: #fff; background: var(--red); border-radius: 6px;
+    transition: background .2s, border-color .2s, color .2s; cursor: pointer;
+  }
+  .btn:hover { background: var(--red-2); border-color: var(--red-2); }
+  .btn.line { background: transparent; color: var(--red); }
+  .btn.line:hover { background: var(--red); color: #fff; }
+  .btn.light { background: #fff; border-color: #fff; color: var(--red); }
+  .btn.light:hover { background: var(--paper); border-color: var(--paper); }
+  .btn.ghost { background: transparent; border-color: rgba(255,255,255,.7); color: #fff; }
+  .btn.ghost:hover { background: rgba(255,255,255,.12); border-color: #fff; }
+
+  /* Шапка */
+  html { scroll-behavior: smooth; scroll-padding-top: 76px; }
+  header {
+    position: fixed; inset: 0 0 auto; z-index: 20; padding: 16px 0; color: #fff;
+    transition: background .25s, padding .25s, color .25s, box-shadow .25s;
+  }
+  header.solid, header.open { background: var(--cream); color: var(--text); padding: 9px 0; box-shadow: 0 1px 0 var(--line); }
+  header .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+  header nav { display: flex; gap: 26px; font-size: 16px; font-weight: 700; }
+  header nav a { opacity: .9; }
+  header nav a:hover { opacity: 1; color: var(--red); }
+  header:not(.solid):not(.open) nav a:hover { color: #fff; text-decoration: underline; }
+  .tel { font-weight: 700; white-space: nowrap; }
+  .burger { display: none; width: 44px; height: 44px; border: 0; background: none; cursor: pointer; position: relative; margin-right: -10px; color: inherit; }
+  .burger span, .burger span::before, .burger span::after {
+    position: absolute; left: 11px; width: 22px; height: 2px; background: currentColor; content: ""; transition: transform .2s, top .2s, background .2s;
+  }
+  .burger span { top: 21px; }
+  .burger span::before { left: 0; top: -7px; }
+  .burger span::after { left: 0; top: 7px; }
+  header.open .burger span { background: transparent; }
+  header.open .burger span::before { top: 0; transform: rotate(45deg); background: var(--text); }
+  header.open .burger span::after { top: 0; transform: rotate(-45deg); background: var(--text); }
+
+  /* Первый экран: их крыльцо */
+  .hero {
+    position: relative; min-height: 100svh; display: flex; align-items: flex-end; color: #fff;
+    background: var(--wood) center 40% / cover no-repeat;
+    background-image: linear-gradient(180deg, rgba(30,14,9,.55) 0%, rgba(30,14,9,.25) 35%, rgba(30,14,9,.88) 100%),
+      url("https://i8.photo.2gis.com/main/branch/25/70000001023406585/common");
+  }
+  .hero .wrap { width: 100%; padding-top: 120px; padding-bottom: 64px; }
+  .hero h1 { font-family: "Ruslan Display", serif; font-weight: 400; line-height: 1; font-size: clamp(44px, 8.4vw, 104px); }
+  .hero h1 span { display: block; }
+  .hero h1 .no { color: #fff; font-size: 1.25em; }
+  .hero .lead { margin-top: 22px; color: #f6ebe2; font-size: 19px; }
+  .hero-facts { display: flex; flex-wrap: wrap; gap: 10px 34px; margin-top: 26px; font-size: 16px; color: #f6ebe2; }
+  .hero-facts b { color: #fff; }
+  .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
+
+  /* Красная полоса: главное о месте */
+  .strip { color: #fff; }
+  .strip .carve { --c: var(--cream); }
+  .strip .wrap { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 40px; padding-top: 48px; padding-bottom: 48px; }
+  .strip b { display: block; font: 700 26px/1.2 "Lora", serif; }
+  .strip p { margin-top: 8px; color: #fbe6e2; }
+
+  /* Блоки «фото + текст» */
+  .split { display: grid; grid-template-columns: 1fr 1fr; min-height: 620px; }
+  .split .photo { background: var(--paper) center / cover no-repeat; min-height: 420px; }
+  .split .text { padding: 96px clamp(16px, 6vw, 88px); display: flex; flex-direction: column; justify-content: center; }
+  .split .text .lead { margin-top: 22px; }
+  .split.rev .photo { order: 2; }
+
+  ul.plain { list-style: none; margin-top: 26px; columns: 2; column-gap: 32px; }
+  ul.plain li { padding: 10px 0 10px 24px; border-bottom: 1px solid var(--line); break-inside: avoid; font-size: 16px; position: relative; }
+  ul.plain li::before { content: ""; position: absolute; left: 2px; top: 18px; width: 9px; height: 9px; background: var(--red); transform: rotate(45deg); }
+
+  /* Территория: два блока без фото, на бумажном фоне */
+  .yard { background: var(--paper); padding: 110px 0; }
+  .yard-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; margin-top: 48px; }
+  .yard h3 { font: 700 26px/1.2 "Lora", serif; color: var(--red); }
+  .yard p { margin-top: 12px; color: var(--dim); }
+
+  /* Дети */
+  .kids { color: #fff; }
+  .kids .carve { --c: var(--paper); }
+  .kids .wrap { padding-top: 96px; padding-bottom: 96px; display: grid; grid-template-columns: 1.1fr 1fr; gap: 64px; align-items: center; }
+  .kids .h em { color: #fff; }
+  .kids .lead { color: #fbe6e2; margin-top: 22px; }
+  .kids ul { list-style: none; background: var(--cream); color: var(--text); border-radius: 8px; padding: 10px 28px; }
+  .kids li { padding: 16px 0; border-bottom: 1px solid var(--line); font-size: 18px; }
+  .kids li:last-child { border-bottom: 0; }
+  .kids li small { display: block; color: var(--dim); font-size: 15px; }
+
+  /* Праздники */
+  .party { padding: 110px 0; }
+  .party-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; }
+  .rows div { display: grid; grid-template-columns: 170px 1fr; gap: 16px; padding: 16px 0; border-top: 1px solid var(--line); }
+  .rows div:last-child { border-bottom: 1px solid var(--line); }
+  .rows b { font-weight: 700; }
+  .rows span { color: var(--dim); }
+
+  /* Отзывы */
+  .reviews { background: var(--wood); color: #f6ebe2; padding: 110px 0; }
+  .reviews .h em { color: #e9a196; }
+  .quotes { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 48px; margin-top: 52px; }
+  .quotes blockquote { font: italic 500 20px/1.55 "Lora", serif; padding-top: 22px; border-top: 3px solid var(--red); }
+  .quotes cite { display: block; margin-top: 14px; font: 700 15px "PT Sans", sans-serif; color: #e9a196; }
+  .reviews .src { margin-top: 48px; font-size: 15px; color: #c8b3a6; }
+  .reviews .src a { border-bottom: 1px solid currentColor; }
+
+  /* Запись */
+  .book { padding: 110px 0; }
+  .book-grid { display: grid; grid-template-columns: 1fr 1.25fr; gap: 64px; align-items: start; }
+  .book .lead { margin-top: 22px; }
+  .form { display: grid; grid-template-columns: 1fr 1fr; gap: 20px 22px; background: #fff; border: 1px solid var(--line); border-top: 6px solid var(--red); border-radius: 8px; padding: 32px; }
+  .form label { display: flex; flex-direction: column; gap: 6px; font-size: 14px; color: var(--dim); font-weight: 700; }
+  .form .wide { grid-column: 1 / -1; }
+  .form input, .form select, .form textarea {
+    font: 400 17px/1.4 "PT Sans", sans-serif; color: var(--text);
+    background: var(--cream); border: 1.5px solid rgba(58,34,24,.22); border-radius: 6px;
+    padding: 12px 14px; outline: none; width: 100%;
+  }
+  .form input:focus, .form select:focus, .form textarea:focus { border-color: var(--red); }
+  .form textarea { resize: vertical; min-height: 50px; }
+  .checks { display: flex; flex-wrap: wrap; gap: 12px 26px; }
+  .checks label { flex-direction: row; align-items: center; gap: 10px; font-size: 16px; color: var(--text); font-weight: 400; cursor: pointer; }
+  .checks input { width: 20px; height: 20px; accent-color: var(--red); padding: 0; }
+  .send { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 4px; }
+  .form-note { font-size: 13px; color: var(--dim); line-height: 1.5; font-weight: 400; }
+  .form-msg { font-size: 15px; color: var(--red); min-height: 1.4em; }
+  .form .err input, .form .err select { border-color: var(--red); background: #fdf0ee; }
+
+  /* Контакты */
+  .contacts { padding: 110px 0 90px; background: var(--paper); }
+  .c-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 56px; margin-top: 44px; align-items: start; }
+  .c-row { padding: 18px 0; border-top: 1px solid var(--line); }
+  .c-row small { display: block; color: var(--dim); font-size: 14px; margin-bottom: 4px; }
+  .c-row div { font-size: 19px; font-weight: 700; }
+  .msg { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 26px; }
+  .way { color: var(--dim); }
+  .way h3 { font: 700 24px/1.2 "Lora", serif; color: var(--text); margin-bottom: 12px; }
+  .way p + p { margin-top: 1em; }
+
+  footer { background: var(--red); color: #fbe6e2; font-size: 14px; }
+  footer .carve { --c: var(--paper); }
+  footer .wrap { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; padding-top: 24px; padding-bottom: 32px; }
+
+  .mbar { display: none; }
+
+  @media (max-width: 900px) {
+    .burger { display: block; }
+    header nav {
+      display: none; position: absolute; top: 100%; left: 0; right: 0;
+      flex-direction: column; gap: 0; padding: 8px 16px 20px;
+      background: var(--cream); color: var(--text); box-shadow: 0 8px 16px rgba(58,34,24,.12); font-size: 17px;
+    }
+    header nav a { padding: 14px 0; border-bottom: 1px solid var(--line); opacity: 1; }
+    header nav a:last-child { border-bottom: 0; }
+    header.open nav { display: flex; }
+    .strip .wrap { grid-template-columns: minmax(0, 1fr); gap: 24px; padding-top: 40px; padding-bottom: 40px; }
+    .split, .split.rev { grid-template-columns: minmax(0, 1fr); min-height: 0; }
+    .split.rev .photo { order: 0; }
+    .split .photo { min-height: 0; aspect-ratio: 4 / 3; }
+    .split .text { padding: 56px 16px 64px; }
+    ul.plain { columns: 1; }
+    .yard, .party, .reviews, .contacts, .book { padding: 72px 0; }
+    .yard-grid, .party-grid, .c-grid, .book-grid { grid-template-columns: minmax(0, 1fr); gap: 36px; }
+    .kids .wrap { grid-template-columns: minmax(0, 1fr); gap: 32px; padding-top: 64px; padding-bottom: 64px; }
+    .rows div { grid-template-columns: minmax(0, 1fr); gap: 2px; }
+    .quotes { grid-template-columns: minmax(0, 1fr); gap: 32px; }
+    .form { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 18px 14px; padding: 22px 16px; }
+    .send .btn { flex: 1 1 100%; }
+    .mbar {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 8px;
+      position: fixed; inset: auto 0 0; z-index: 10;
+      padding: 10px 16px calc(10px + env(safe-area-inset-bottom));
+      background: var(--cream); box-shadow: 0 -1px 0 var(--line);
+    }
+    .mbar .btn { padding: 13px 10px; font-size: 15px; }
+    body { padding-bottom: 74px; }
+  }
+  @media (max-width: 480px) {
+    .tel { display: none; }
+    .logo small { display: none; }
+    .hero-actions .btn { flex: 1 1 100%; }
+    .hero .lead { font-size: 17px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <a class="logo" href="#" aria-label="Семейная Баня №7">
+      <span class="num">7</span>
+      <span><b>Семейная Баня №7</b><small>русская баня на дровах</small></span>
+    </a>
+    <nav>
+      <a href="#house">Баня</a>
+      <a href="#yard">Веранда</a>
+      <a href="#kids">Детям</a>
+      <a href="#reviews">Отзывы</a>
+      <a href="#book">Запись</a>
+      <a href="#contacts">Контакты</a>
+    </nav>
+    <a class="tel" href="tel:+79147353920">+7 914 735-39-20</a>
+    <button class="burger" type="button" aria-label="Меню" aria-expanded="false"><span></span></button>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <h1><span>Семейная</span><span>Баня <span class="no" style="display:inline">№7</span></span></h1>
+    <p class="lead">Отдельный бревенчатый дом с русской баней на дровах, верандой и мангалом. Закрытая территория в городе, детская комната и место для компании до 25 человек.</p>
+    <div class="hero-facts">
+      <span><b>Круглосуточно</b>, без выходных</span>
+      <span><b>до 25</b> гостей</span>
+      <span><b>ул. Нефтеветка, 7</b>, Первая Речка</span>
+    </div>
+    <div class="hero-actions">
+      <a class="btn light" href="#book">Забронировать</a>
+      <a class="btn ghost" href="tel:+79147353920">Позвонить</a>
+    </div>
+  </div>
+</section>
+
+<section class="strip lattice">
+  <div class="carve"></div>
+  <div class="wrap">
+    <div><b>Дом только ваш</b><p>Один дом на участке, соседей нет. Территория огорожена забором.</p></div>
+    <div><b>Баня на дровах</b><p>Русская парная, тёплый сруб, внутри пахнет деревом.</p></div>
+    <div><b>Можно с детьми</b><p>Детская комната, батуты и площадка во дворе.</p></div>
+  </div>
+</section>
+
+<section class="split" id="house">
+  <div class="photo" style="background-image:url('https://cachizer1.2gis.com/reviews-photos/4eb03d0b-59a7-450f-b7bb-6dfdbcd43313.jpg')"></div>
+  <div class="text">
+    <h2 class="h">Баня <em>на дровах</em> и дом, как за городом</h2>
+    <p class="lead">Русская парная в бревенчатом доме. Гости пишут, что тут уютно, как будто уехали из города, хотя до Первой Речки десять минут пешком.</p>
+    <p class="lead">После парной — комната отдыха с камином, большой стол, караоке и телевизор.</p>
+    <ul class="plain">
+      <li>Русская парная на дровах</li>
+      <li>Комната отдыха</li>
+      <li>Караоке и ТВ</li>
+      <li>Кухня и посуда</li>
+      <li>Полотенца, простыни, тапочки</li>
+      <li>Чай</li>
+    </ul>
+  </div>
+</section>
+
+<section class="yard" id="yard">
+  <div class="wrap">
+    <h2 class="h">Веранда, <em>мангал</em> и большой двор</h2>
+    <p class="lead" style="margin-top:22px">Можно приехать не только попариться, но и посидеть компанией на свежем воздухе. Беседку берут и отдельно, под шашлык с друзьями.</p>
+    <div class="yard-grid">
+      <div>
+        <h3>Крытая мангальная зона</h3>
+        <p>Просторная беседка с огромными столами. Мангал и всё для шашлыка уже есть, посуду и приборы привозить не нужно.</p>
+      </div>
+      <div>
+        <h3>Ухоженная территория</h3>
+        <p>Зелёный двор за забором, много мест, где посидеть и поговорить. Удобно расположиться большой компанией и не мешать друг другу.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="kids lattice" id="kids">
+  <div class="carve down"></div>
+  <div class="wrap">
+    <div>
+      <h2 class="h">Баня, куда <em>берут детей</em></h2>
+      <p class="lead">Взрослые парятся, а дети играют рядом. Территория закрыта, поэтому малышей не страшно отпустить во двор. Гости пишут, что лучшего варианта бани с детьми в городе не нашли.</p>
+    </div>
+    <ul>
+      <li>Детская комната<small>в доме, рядом с комнатой отдыха</small></li>
+      <li>Батуты и детская площадка<small>во дворе</small></li>
+      <li>Закрытая территория<small>забор, один дом на участке</small></li>
+      <li>Детские праздники<small>дни рождения в беседке и в доме</small></li>
+    </ul>
+  </div>
+</section>
+
+<section class="party" id="price">
+  <div class="wrap party-grid">
+    <div>
+      <h2 class="h">Праздник <em>на 25 человек</em></h2>
+      <p class="lead" style="margin-top:22px">У нас отмечают дни рождения, юбилеи, детские праздники, второй день свадьбы и встречи с коллективом. Места хватит всем: и в бане, и в доме, и на веранде.</p>
+      <p class="lead">Стоимость часа зависит от дня недели и количества гостей. Точную цену на вашу дату подскажет администратор.</p>
+    </div>
+    <div class="rows">
+      <div><b>Режим работы</b><span>Круглосуточно, без выходных</span></div>
+      <div><b>Гостей</b><span>До 25 человек</span></div>
+      <div><b>Стоимость</b><span>Уточняйте у администратора</span></div>
+      <div><b>Оплата</b><span>Наличными или переводом с карты</span></div>
+      <div><b>Беседка</b><span>Можно забронировать отдельно</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="reviews" id="reviews">
+  <div class="wrap">
+    <h2 class="h">Что пишут <em>гости</em></h2>
+    <div class="quotes">
+      <blockquote>«Тёплый домик, чистый, внутри приятно пахнет древесиной. Ухоженная территория, огорожена забором, не страшно отпустить детей. Есть детская комната.»<cite>Отзыв в 2ГИС</cite></blockquote>
+      <blockquote>«Отмечали день рождения бабушки! Очень уютно, чистенько, ухожено. Прямо по-домашнему! Всем понравилось! Баня хорошая!»<cite>Анна</cite></blockquote>
+      <blockquote>«Очень чистое и уютное место. Лучше варианта отдыха в бане с детьми в городе не находила. Наличие детской комнаты — огромный плюс.»<cite>Вероника</cite></blockquote>
+    </div>
+    <p class="src">Рейтинг 5,0 и 168 оценок в <a href="https://2gis.ru/vladivostok/firm/70000001023406585/tab/reviews" target="_blank" rel="noopener">2ГИС</a></p>
+  </div>
+</section>
+
+<section class="book" id="book">
+  <div class="wrap book-grid">
+    <div>
+      <h2 class="h">Забронировать <em>баню</em></h2>
+      <p class="lead">Выберите дату, время и сколько вас будет. Заявка придёт нам в WhatsApp готовым сообщением, и администратор подтвердит бронь.</p>
+      <p class="lead">Работаем круглосуточно, поэтому время можно выбрать любое.</p>
+    </div>
+
+    <form class="form" id="bookForm" novalidate>
+      <label>Дата<input type="date" name="date" required></label>
+      <label>Время
+        <select name="time" required>
+          <option value="">Выберите</option>
+        </select>
+      </label>
+      <label>Сколько часов
+        <select name="hours">
+          <option>2</option><option selected>3</option><option>4</option><option>5</option><option>6</option><option>Больше 6</option>
+        </select>
+      </label>
+      <label>Гостей
+        <select name="guests">
+          <option>до 5</option><option selected>6–10</option><option>11–15</option><option>16–20</option><option>21–25</option>
+        </select>
+      </label>
+      <div class="wide checks">
+        <label><input type="checkbox" name="kids"> Будут дети</label>
+        <label><input type="checkbox" name="grill"> Беседка с мангалом</label>
+        <label><input type="checkbox" name="karaoke"> Караоке</label>
+        <label><input type="checkbox" name="party"> Отмечаем праздник</label>
+      </div>
+      <label>Имя<input type="text" name="name" autocomplete="given-name" required></label>
+      <label>Телефон<input type="tel" name="phone" autocomplete="tel" placeholder="+7" required></label>
+      <label class="wide">Комментарий<textarea name="comment" rows="1" placeholder="Например: день рождения ребёнка, нужна только беседка"></textarea></label>
+      <div class="wide send">
+        <button class="btn" type="submit">Отправить в WhatsApp</button>
+        <a class="btn line" href="tel:+79147353920">Позвонить</a>
+      </div>
+      <p class="wide form-msg" id="formMsg" role="status"></p>
+      <p class="wide form-note">Нажимая кнопку, вы соглашаетесь на обработку имени и телефона для брони. Данные уходят только администратору бани.</p>
+    </form>
+  </div>
+</section>
+
+<section class="contacts" id="contacts">
+  <div class="wrap">
+    <h2 class="h">Как нас <em>найти</em></h2>
+    <div class="c-grid">
+      <div>
+        <div class="c-row"><small>Адрес</small><div>Владивосток, ул. Нефтеветка, 7</div></div>
+        <div class="c-row"><small>Режим работы</small><div>Круглосуточно</div></div>
+        <div class="c-row"><small>Телефон и WhatsApp</small><div><a href="tel:+79147353920">+7 914 735-39-20</a></div></div>
+        <div class="msg">
+          <a class="btn" href="https://wa.me/79147353920" target="_blank" rel="noopener">Написать в WhatsApp</a>
+          <a class="btn line" href="tel:+79147353920">Позвонить</a>
+        </div>
+      </div>
+      <div class="way">
+        <h3>Первый раз едете?</h3>
+        <p>Первореченский район, около километра от Первой Речки. Гости пишут, что в первый раз найти нас непросто, поэтому откройте маршрут в 2ГИС: там отмечен вход.</p>
+        <p>Если заблудились, позвоните, администратор подскажет дорогу.</p>
+        <p style="margin-top:26px"><a class="btn line" href="https://2gis.ru/vladivostok/firm/70000001023406585" target="_blank" rel="noopener">Маршрут в 2ГИС</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="carve"></div>
+  <div class="wrap">
+    <span>© Семейная Баня №7</span>
+    <span>Владивосток, ул. Нефтеветка, 7 · круглосуточно</span>
+  </div>
+</footer>
+
+<div class="mbar">
+  <a class="btn" href="#book">Забронировать</a>
+  <a class="btn line" href="tel:+79147353920">Позвонить</a>
+</div>
+
+<script>
+// Шапка: фон при прокрутке, меню на телефоне
+(function () {
+  const header = document.querySelector("header");
+  const burger = header.querySelector(".burger");
+  const onScroll = () => header.classList.toggle("solid", window.scrollY > 40);
+  window.addEventListener("scroll", onScroll, { passive: true });
+  onScroll();
+  const setOpen = (v) => { header.classList.toggle("open", v); burger.setAttribute("aria-expanded", v); };
+  burger.addEventListener("click", () => setOpen(!header.classList.contains("open")));
+  header.querySelectorAll("nav a").forEach((a) => a.addEventListener("click", () => setOpen(false)));
+})();
+</script>
+
+<script>
+// Заявка уходит администратору в WhatsApp готовым сообщением.
+(function () {
+  const WA_PHONE = "79147353920";
+
+  const form = document.getElementById("bookForm");
+  const msg = document.getElementById("formMsg");
+  const f = form.elements;
+  const pad = (n) => String(n).padStart(2, "0");
+  const today = new Date();
+  f.date.min = `${today.getFullYear()}-${pad(today.getMonth() + 1)}-${pad(today.getDate())}`;
+
+  // Круглосуточно: любое время с 00:00 до 23:30
+  for (let h = 0; h < 24; h++) for (const m of ["00", "30"]) f.time.add(new Option(`${pad(h)}:${m}`));
+
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const required = [f.date, f.time, f.name, f.phone];
+    let ok = true;
+    required.forEach((el) => {
+      const bad = !el.value.trim() || (el === f.phone && el.value.replace(/\D/g, "").length < 10);
+      el.closest("label").classList.toggle("err", bad);
+      if (bad) ok = false;
+    });
+    if (!ok) { msg.textContent = "Заполните дату, время, имя и телефон."; return; }
+
+    const [y, m, d] = f.date.value.split("-");
+    const extras = [
+      f.kids.checked && "будут дети",
+      f.grill.checked && "беседка с мангалом",
+      f.karaoke.checked && "караоке",
+      f.party.checked && "отмечаем праздник",
+    ].filter(Boolean);
+    const text = [
+      "Здравствуйте! Хочу забронировать баню (заявка с сайта).",
+      `Дата: ${d}.${m}.${y}, с ${f.time.value}`,
+      `Часов: ${f.hours.value}, гостей: ${f.guests.value}`,
+      extras.length ? `Дополнительно: ${extras.join(", ")}` : "",
+      `Имя: ${f.name.value.trim()}`,
+      `Телефон: ${f.phone.value.trim()}`,
+      f.comment.value.trim() ? `Комментарий: ${f.comment.value.trim()}` : "",
+    ].filter(Boolean).join("\n");
+
+    window.open(`https://wa.me/${WA_PHONE}?text=${encodeURIComponent(text)}`, "_blank", "noopener");
+    msg.textContent = "Открываем WhatsApp, осталось нажать «Отправить».";
+  });
+})();
+</script>
+
+</body>
+</html>
